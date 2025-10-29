@@ -23,6 +23,6 @@
     /* Ensure this setting is here and true */
     "verbatimModuleSyntax": true
   },
-  "include": ["src"],
+  "include": ["src", "vite-env.d.ts"],       // ✅ Add this line
   "references": [{ "path": "./tsconfig.node.json" }]
 }
