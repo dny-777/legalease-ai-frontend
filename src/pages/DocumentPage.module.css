@@ -1,0 +1,143 @@
+.container {
+  border: 1px solid var(--navy);
+  border-radius: 0.75rem; /* Slightly larger radius */
+  overflow: hidden;
+  margin-top: 1rem;
+  background: linear-gradient(145deg, rgba(17, 34, 64, 0.5), rgba(10, 25, 47, 0.4)); /* Subtle gradient */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  backdrop-filter: blur(3px); /* Optional: slight blur if background is complex */
+}
+
+.header {
+  padding: 0.75rem 1.25rem; /* Increased padding */
+  border-bottom: 1px solid rgba(10, 25, 47, 0.7); /* Darker border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, rgba(10, 25, 47, 0.7), rgba(17, 34, 64, 0.5)); /* Header gradient */
+}
+
+.fileNameContainer { display: flex; align-items: center; gap: 0.6rem; overflow: hidden; }
+.fileIcon { width: 1.1rem; height: 1.1rem; color: var(--gold); flex-shrink: 0; }
+.fileName { font-size: 0.95rem; font-weight: 600; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.tabs {
+  display: flex;
+  gap: 0.75rem; /* Increased gap */
+  padding: 0.75rem 1.25rem 0.6rem; /* Adjusted padding */
+  border-bottom: 1px solid var(--navy);
+  background-color: rgba(10, 25, 47, 0.3); /* Slightly darker tab bar */
+}
+
+.tabButton {
+  padding: 0.4rem 1rem; /* Adjusted padding */
+  border-radius: 0.375rem;
+  font-size: 0.8rem; /* Slightly larger font */
+  font-weight: 500;
+  transition: all 0.2s ease-out; /* Smooth all transitions */
+  background-color: transparent; /* Default transparent */
+  color: var(--slate);
+  border: 1px solid transparent; /* Placeholder for border */
+  position: relative; /* For pseudo-element */
+  overflow: hidden; /* For pseudo-element */
+}
+.tabButton::after { /* Underline effect */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    transition: width 0.2s ease-out;
+}
+.tabButton:hover:not(.activeTab) {
+  color: var(--white); /* Brighter text on hover */
+}
+.tabButton.activeTab {
+  color: var(--gold); /* Gold text for active */
+  font-weight: 600;
+}
+.tabButton.activeTab::after {
+    width: 70%; /* Active underline width */
+}
+
+
+.contentArea {
+  padding: 1rem 1.25rem;
+  overflow-y: auto;
+  background-color: rgba(10, 25, 47, 0.1);
+  max-height: 45vh;
+  min-height: 250px; /* Slightly taller */
+  border-bottom: 1px solid var(--navy); /* Separator line */
+}
+
+.contentText {
+  font-size: 0.9rem; /* Slightly larger text */
+  color: var(--light-slate);
+  white-space: pre-wrap;
+  line-height: 1.75; /* Increased line spacing */
+}
+
+.footer {
+  padding: 0.85rem 1.25rem; /* Increased padding */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  background: linear-gradient(to right, rgba(10, 25, 47, 0.7), rgba(17, 34, 64, 0.5)); /* Match header gradient */
+}
+
+.actionButton {
+  display: inline-flex; align-items: center; gap: 0.4rem; /* Increased icon gap */
+  padding: 0.5rem 1.1rem; /* Increased padding */
+  border-radius: 0.375rem; font-size: 0.8rem; font-weight: 500;
+  transition: all 0.2s ease; /* Transition all properties */
+  color: var(--white);
+  border: none; /* Remove default border */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Default shadow */
+  transform: translateY(0); /* Start position */
+}
+.actionButton:hover:not(:disabled) {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  filter: brightness(1.1); /* Slightly brighten */
+}
+.actionButton:active:not(:disabled) {
+    transform: translateY(-1px); /* Smaller lift on click */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Specific button colors */
+.actionButton:nth-of-type(1) { background-color: #2563eb; } /* blue-600 */
+.actionButton:nth-of-type(2) { background-color: #16a34a; } /* green-600 */
+.actionButton:nth-of-type(3) { background-color: #4b5563; } /* slate-600 */
+
+.actionButton:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; transform: none; filter: none; }
+
+.loader { width: 1.1rem; height: 1.1rem; animation: spin 1s linear infinite; color: var(--gold); margin-left: 0.75rem; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.errorTextFooter { color: var(--error-red); font-size: 0.75rem; width: 100%; margin-top: 0.25rem; order: 10; font-weight: 500; }
+
+.audioPlayer {
+    height: 2rem;
+    margin-left: auto; /* Pushes to the right */
+    max-width: 250px;
+    filter: invert(85%) sepia(20%) saturate(1500%) hue-rotate(350deg) brightness(100%) contrast(95%); /* Gold-ish theme for controls */
+    border-radius: 50px; /* Rounded player */
+    background-color: rgba(10, 25, 47, 0.5); /* Semi-transparent background */
+}
+/* Style the track and thumb (browser support varies) */
+.audioPlayer::-webkit-media-controls-panel {
+  background-color: rgba(10, 25, 47, 0.7);
+}
+.audioPlayer::-webkit-media-controls-play-button,
+.audioPlayer::-webkit-media-controls-timeline,
+.audioPlayer::-webkit-media-controls-current-time-display,
+.audioPlayer::-webkit-media-controls-time-remaining-display,
+.audioPlayer::-webkit-media-controls-mute-button,
+.audioPlayer::-webkit-media-controls-volume-slider {
+  filter: invert(85%) sepia(20%) saturate(1500%) hue-rotate(350deg) brightness(100%) contrast(95%);
+}

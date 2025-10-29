@@ -1,0 +1,123 @@
+/* Basic Reset & Body Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0A192F; /* navy */
+  color: #ccd6f6; /* light-slate */
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Basic Link Styling */
+a {
+  color: #FFD700; /* gold */
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* Basic Button Styling */
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  font-size: 0.875rem; /* text-sm equivalent */
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Define some color variables for easier use */
+:root {
+  --navy: #0A192F;
+  --light-navy: #112240;
+  --gold: #FFD700;
+  --slate: #8892b0;
+  --light-slate: #ccd6f6;
+  --white: #E6F1FF;
+  --error-red: #f87171; /* Example error color */
+  --success-green: #4ade80; /* Example success color */
+  --info-blue: #60a5fa; /* Example info color */
+}
+
+/* Basic Layout Styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1; /* Allows main content to fill space */
+  padding: 1rem; /* Basic padding */
+  max-width: 1280px; /* Container */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: 2rem; /* More padding on larger screens */
+  }
+}
+
+/* Page Title Style */
+.page-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: var(--white);
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+@media (min-width: 768px) {
+  .page-title {
+    font-size: 1.875rem; /* text-3xl */
+  }
+}
+
+/* Basic Card Style */
+.card {
+  background-color: var(--light-navy);
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-xl */
+  overflow: hidden;
+  border: 1px solid var(--navy);
+  padding: 1.5rem; /* p-6 */
+}
+
+/* Basic Input Style */
+input[type="text"],
+select {
+  background-color: var(--navy);
+  border: 1px solid var(--light-navy);
+  color: var(--light-slate);
+  border-radius: 0.375rem; /* rounded-lg or rounded-md */
+  padding: 0.5rem 0.75rem; /* p-2 */
+  font-size: 0.875rem; /* text-sm */
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold); /* ring-1 ring-gold */
+}
+input[type="text"]:disabled {
+  opacity: 0.6;
+}

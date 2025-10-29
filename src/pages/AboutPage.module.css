@@ -1,0 +1,50 @@
+.pageContainer {
+  min-height: calc(100vh - 60px); /* Adjust based on header height */
+  position: relative; /* Needed for the ::before pseudo-element */
+  padding-bottom: 2rem; /* Add some bottom padding */
+}
+
+/* Style for individual sections within the card */
+.section {
+  padding: 1rem 0; /* Add vertical padding to sections */
+  border-bottom: 1px solid rgba(17, 34, 64, 0.5); /* Subtle separator (navy/50) */
+}
+/* No border for the last section - Selects direct children sections inside .card */
+.card > section:last-child {
+  border-bottom: none;
+  padding-bottom: 0; /* Remove bottom padding on last item */
+}
+
+.sectionTitle {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  color: var(--gold);
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.paragraph {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.6; /* leading-relaxed */
+  color: var(--light-slate); /* Ensure consistent text color */
+}
+
+.list {
+  list-style: disc;
+  padding-left: 1.5rem; /* list-inside approx */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.6;
+  display: flex; /* Optional: better spacing control */
+  flex-direction: column;
+  gap: 0.25rem; /* space-y-1 approx */
+  color: var(--light-slate);
+}
+
+.list li::marker { /* Slightly style list bullets */
+    color: var(--gold);
+}
+
+/* Use > * + * selector for space between sections on the card */
+/* This adds margin-top ONLY between direct children elements of .card */
+.card > * + * {
+  margin-top: 1rem; /* Reduced margin slightly */
+}

@@ -1,0 +1,17 @@
+.pageContainer {
+  min-height: calc(100vh - 60px); /* Adjust based on header height */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Needed for the ::before pseudo-element */
+}
+
+.chatCard {
+  flex-grow: 1; /* Make chat card fill remaining height */
+  background-color: var(--light-navy);
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-xl */
+  overflow: hidden;
+  border: 1px solid var(--navy);
+  display: flex; /* Ensure ChatInterface inside fills height */
+  flex-direction: column;
+}
